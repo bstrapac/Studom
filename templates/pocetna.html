@@ -1,0 +1,38 @@
+
+<div  class="container" style="padding-bottom: 20px" ng-init="LoadPocetna()">
+	<div id="sobe" class="container btn-group">	
+		<h4>Prizemlje</h4>
+		<div id="prizemlje">
+			<span 
+				ng-repeat="soba in sobe | filter:{ kat: 'P' }"
+				ng-click="GetModal('http://localhost/Studom/modals.php?modal_id=soba&room_no=', soba.broj)" 
+				class="button btn btn-primary" 
+				role="button">
+					{{soba.broj}}<br>
+					<p ng-if="soba.slobodna_mjesta == '0'"><i class="fa fa-user"> </i><i class="fa fa-user"></i></p>
+					<p ng-if="soba.slobodna_mjesta == '1'"><i class="fa fa-user"></i></p>
+					<p ng-if="soba.slobodna_mjesta == '2'"> <br></p>
+			</span>
+ 		</div>
+ 		<h4>1 Kat</h4>
+ 		<div id="prvi_kat" class="panel-body">
+ 			<span 
+				ng-repeat="soba in sobe | filter:{ kat: '1' }"
+				ng-click="GetModal('http://localhost/Studom/modals.php?modal_id=soba&room_no=', soba.broj)" 
+				class="button btn btn-primary" 
+				role="button">
+					{{soba.broj}}<br>
+					<p ng-if="soba.slobodna_mjesta == '0'"><i class="fa fa-user"> </i><i class="fa fa-user"></i></p>
+					<p ng-if="soba.slobodna_mjesta == '1'"><i class="fa fa-user"></i></p>
+					<p ng-if="soba.slobodna_mjesta == '2'"> <br></p>
+			</span>
+ 		</div> 	
+	</div>
+</div> 					
+<div id="modals" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+		</div>
+	</div>
+</div>
+<script src="js/sobe.js"></script>

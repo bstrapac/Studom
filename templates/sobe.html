@@ -1,0 +1,34 @@
+<form>
+     <label>Pretraga soba:</label><br>
+     <input type="text" ng-model="soba" value="" required>
+     <button type="submit" ng-click="GetModal('http://localhost/Studom/modals.php?modal_id=soba_edit&room_no=', soba)" ><i class="fa fa-fw fa-search"></i></button><br>
+</form><br>
+<table class="tablica_sobe table table-bordered table-hover" ng-init="LoadPocetna()">
+		<thead >
+			<tr>
+				<th>Broj</th>
+				<th>Kat</th>
+				<th>Kategorija</th>
+				<th>Slobodna mjesta</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="soba in sobe| filter: soba">
+			<td>{{soba.broj}}</td>
+			<td ng-if="soba.kat=='P'">Prizemlje</td>
+			<td ng-if="soba.kat=='1'">Prvi kat</td>
+			<td ng-if="soba.kategorija=='M'"> Muška</td>
+			<td ng-if="soba.kategorija=='F'"> Ženska</td>
+			<td>{{soba.slobodna_mjesta}}</td>
+			<td><button ng-click="GetModal('http://localhost/Studom/modals.php?modal_id=soba_edit&room_no=', soba.broj)" ><span class="glyphicon glyphicon-share"></span></button></td>
+		</tr>
+		</tbody>
+	</table>
+	<div id="modals" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<script src="js/sobe.js"></script>

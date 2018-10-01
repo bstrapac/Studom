@@ -1,0 +1,22 @@
+<form>
+     <label>Pretraga zahtjeva:</label><br>
+     <input type="text" ng-model="search" value="">
+</form><br>
+<table class="tablica_zahtjevi table table-bordered table-hover" ng-init="LoadZahtjevi()">
+		<thead >
+			<tr>
+				<th>Jmbag</th>
+				<th>Student</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody ng-repeat="zahtjev in zahtjevi|filter:search">
+			<tr>
+				<td>{{zahtjev.jmbag_studenta}}</td>
+				<td>{{zahtjev.prezime}}</td>
+				<td><button ng-click="GetModal('http://localhost/Studom/modals.php?modal_id=student_zahtjev&jmbag=', zahtjev.jmbag_studenta)"><span class="glyphicon glyphicon-share"></span></button>
+				<button ng-click="DeleteRequest(zahtjev.jmbag_studenta)"><span class="glyphicon glyphicon-trash"></span></button></td>
+			</tr>
+		</tbody>
+	</table>
+<script src="js/sobe.js"></script>

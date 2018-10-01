@@ -1,0 +1,12 @@
+.button
+{
+  display: block;
+  margin: auto;
+  width: 250px;
+  top: 50%;
+}
+#logo
+{
+	height: 180px;
+	border-radius: 15px 50px;
+}

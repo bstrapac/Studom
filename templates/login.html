@@ -1,0 +1,21 @@
+ <form>
+                <label>Unesi svoj jmbag i saznaj da li si dobio sobu.</label><br>
+                <input type="text" ng-model="jmbag" value="" required>
+                <button type="submit" ng-click="GetModal('http://localhost/Studom/modals.php?modal_id=student_search&jmbag=', jmbag)"><i class="fa fa-fw fa-search" ></i></button><br>
+                <a data-toggle="modal" data-target="#registracija_modal"><span role="button">Nisi registriran? Popuni formu i pridruži nam se.</span></a>  
+             </form> 
+             <div class="container" style="text-align: center">
+                <div>
+                  <form style="padding-bottom: 10px">   
+                        <div >
+                          <label><b>Korisničko ime:</b></label><br>
+                          <input ng-model="user" type="text" placeholder="Unesite korisničko ime" required><br>     
+                          <label><b>Lozinka:</b></label><br>
+                          <input ng-model="pass" type="password" placeholder="Unesite lozinku" required><br>      
+                        </div>
+                        
+                  </form>
+                  <button class="button btn btn-submit" type="submit" ng-click="Prijava()">Prijava</button>
+                </div>       
+            </div>
+            

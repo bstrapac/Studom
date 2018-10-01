@@ -1,0 +1,37 @@
+<form>
+     <label>Pretraga studenata:</label><br>
+     <input type="text" ng-model="search" value="">
+</form><br><input type="text" ng-model="naziv">
+{{naziv | polindrom}}
+<table class="table table-bordered table-hover tablica_studenti" ng-init="LoadStudenti()">
+		<thead>
+			<tr>
+				<th>Jmbag</th>
+				<th>Ime</th>
+				<th>Prezime</th>
+				<th>Studij</th>
+				<th>E-mail</th>
+				<th>Telefon</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="student in studenti | filter: search">
+				<td>{{student.jmbag}}</td>
+				<td>{{student.ime}}</td>
+				<td>{{student.prezime}}</td>
+				<td>{{student.college}}</td>
+				<td>{{student.email}}</td>
+				<td>{{student.contact}}</td>
+				<td><button ng-click="GetModal('http://localhost/Studom/modals.php?modal_id=student&jmbag=', student.jmbag)"><span class="glyphicon glyphicon-share"></span></button></td>
+			</tr>
+		</tbody>
+	</table>
+	<div id="modals" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+		</div>
+	</div>
+</div> 
+
+<script src="js/sobe.js"></script>
